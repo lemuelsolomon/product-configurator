@@ -20,7 +20,7 @@ export const App = ({ position = [-1, 0, 2.5], fov = 25 }) => (
 function Shirt() {
   return (
     <mesh>
-      <boxGeometry args={[1.0, 0.5, 0.5]} />
+      <boxGeometry args={[0.5, 0.5, 0.5]} />
       <meshNormalMaterial />
     </mesh>
   )
