@@ -30,7 +30,6 @@ export const App = ({ position = [0, 0, 2.5], fov = 25 }) => (
 
 function Shirt(props) {
   const { nodes, materials } = useGLTF('/shirt_baked_collapsed.glb')
-
   return (
     <mesh
       castShadow
