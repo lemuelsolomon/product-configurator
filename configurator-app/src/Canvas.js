@@ -1,5 +1,5 @@
 import { Canvas } from '@react-three/fiber'
-import { Environment, Center, OrbitControls } from '@react-three/drei'
+import { Environment, Center, OrbitControls, useGLTF  } from '@react-three/drei'
 
 export const App = ({ position = [-1, 0, 2.5], fov = 25 }) => (
   <Canvas
@@ -17,11 +17,18 @@ export const App = ({ position = [-1, 0, 2.5], fov = 25 }) => (
   </Canvas>
 )
 
-function Shirt() {
+function Shirt({ props }) {
+  const { nodes, materials } = useGLTF('/shirt_baked_collapsed.glb')
   return (
-    <mesh>
-      <boxGeometry args={[0.5, 0.5, 0.5]} />
-      <meshNormalMaterial />
-    </mesh>
+    <group {...props} dispose={null}>
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.T_Shirt_male.geometry}
+        material={materials.lambert1}
+      />
+    </group>
   )
 }
+
+useGLTF.preload('/shirt_baked_collapsed.glb')
