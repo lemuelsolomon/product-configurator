@@ -2,6 +2,8 @@ import { useRef } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
 import { easing } from 'maath'
 
+import * as BGU from 'three/examples/jsm/utils/BufferGeometryUtils.js';
+
 import {
   useGLTF,
   Environment,
